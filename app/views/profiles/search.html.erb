@@ -1,0 +1,37 @@
+<div class="main_object">
+<h4>検索結果</h4>
+<table class="profile-index">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th><%= sort_link(@search, :name, "作成者") %></th>
+      <th><%= sort_link(@search, :oshi_name, "推し") %></th>
+      <th><%= sort_link(@search, :updated_at, "更新日") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_profiles.each do |profile| %>
+      <tr class="items">
+        <% if profile.image.attached? %>  
+          <td>
+            <%= link_to profile_path(profile) do %>
+            <%= image_tag profile.image.variant(resize_to_fill: [80, 80]) %>
+          </td>
+          <% end %>
+          <% else %>
+          <td>
+            <%= link_to profile_path(profile) do %>
+            <%= image_tag("default_image.png", :size => "80x80") %>
+          </td>
+          <% end %>
+        <% end %>
+        <td><%= link_to profile.name,profile %></td>
+        <td><%= profile.oshi_name %></td>
+        <td><%= profile.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p><%= link_to '一覧に戻る', :back %></p>
+<p><%= link_to "プロフィール作成",:new_profile %></p>
+</div>

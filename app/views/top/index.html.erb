@@ -1,0 +1,62 @@
+<article>
+  <div class="background"></div>
+    <div class="article-card col-lg-8 text-center">
+      <p class="mb-0 pt-3">
+        <span class="m-2">みんなの推し紹介アプリ</span>
+      </p>
+      <h1 class="site-title">
+        <div class="m-5">OSHIBOOK</div>
+      </h1>
+    </div>
+</article>
+<div class="top_object">
+  <% if user_signed_in? %>
+    <div class="nav-item">
+      <%= link_to "みんなの推し一覧へ",:profiles, class:"top_menu" %>
+    </div>
+    <div class="nav-item">
+      <%= link_to "ログアウト", '/users/sign_out/', method: :delete, class:"top_menu" %>
+    </div>
+    <% else %> 
+      <div class="nav-item">
+        <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "login" %></li>
+        <li class = "btn btn-primary my-2 mx-3"><%= link_to "ログイン", :new_user_session %></li>
+        <li class = "btn btn-secondary"><%= link_to "新規登録", :new_user_registration %></li>
+      </div>
+    <% end %>
+
+  <nav></nav>
+  <div class="align-items-center flex-column">
+    <div class="mt-5">
+      <div class="about_title">
+        <h2 class="contents">About</h2> 
+        <h3 class="page-title">OSHIBOOKとは？</h3>
+      </div>
+      <div>
+        <p class="text-body-2 mt-7">OSHIBOOKは手軽に推しの紹介をできるサービスです。好きなアイドルや芸能人・スポーツ選手などあなたの推しや、推しの好きなところを存分にアピールし、個人で楽しむのも良し、友達とシェアしても盛り上がります！</p>
+      </div>
+    </div>
+    <div  class="mt-5">
+      <div class="about_title">
+        <h2 class="contents">How to</h2> 
+        <h3 class="page-title">使い方</h3>
+      </div>
+      <div>
+        <li class="text-body-2 mt-7">ログイン後、プロフィールの閲覧・作成が可能です。</li>
+        <li class="text-body-2">作成フォームに内容を書き込み、カラーを選んでオリジナルのプロフィールの完成！</li>
+        <li class="text-body-2">自身のSNSのURLの共有もできるので、共通の推しを通して仲が深まるかも！</li>
+        <li class="text-body-2">自身の作成履歴から、自分のアカウントで作成したプロフィール一覧を閲覧・編集できます。過去の自分のプロフィールを振り返ることで、自己分析にも役立ちます。</li>
+      </div>
+    </div>
+    <div  class="mt-5">
+      <div class="about_title">
+        <h2 class="contents">Manner</h2>
+        <h3 class="page-title">より楽しくOSHIBOOKを利用するために</h3>
+      </div>
+      <div>
+        <li class="text-body-2 mt-7">他人の悪口や誹謗中傷をする内容は禁止です。</li>
+        <li class="text-body-2">住所等、個人情報の取り扱いについては気をつけましょう。</li>
+      </div>
+    </div>
+  </div>
+</div>

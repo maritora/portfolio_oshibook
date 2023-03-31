@@ -1,0 +1,56 @@
+<div class="main_object">
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<div class="compare-box compare-box-silver">
+  <div class="compare-left-wrap">
+    <div class="compare-left-head" style="background-color:<%= @profile.color %>">
+      書いた人：<p class="profile_name"><%= @profile.name %></p><br>SNS:<a><%= @profile.sns %></a>
+    </div>
+    <div class="compare-left">
+      <ul class="list">
+        <span>
+          <% if @profile.image.attached? %>
+            <%= image_tag @profile.image.variant(resize_to_fill: [330, 230]) %>
+          <% else %>
+            <%= image_tag("default_image.png", :size => "150x150") %>
+          <% end %>
+        </span>
+        <li>推しになったきっかけ・思い出<p class="profile_data"><%= @profile.reason %></p></li>
+        <li>推しとの日常<p class="profile_data"><%= @profile.every %></p></li>
+        <li>これからの推し活<p class="profile_data"><%= @profile.future %></p></li>
+      </ul>
+    </div>
+  </div>
+  <div class="compare-right-wrap">
+    <div class="compare-right-head" style="background-color:<%= @profile.color %>">
+      推し：<p class="profile_name"><%= @profile.oshi_name %></p>
+    </div>
+    <div class="compare-right">
+      <div>
+          <p class="profile_sentence">私の推しは<span class="dflame profile_data"><%= @profile.oshi_name %></span>！</p>
+          <p class="profile_sentence">私が推しを呼ぶときは<span class="dflame profile_data"><%= @profile.call %></span>って呼んでる！</p>
+          <p class="profile_sentence">推しは<span class="dflame profile_data"><%= @profile.job %></span>をしてる人だよ！</p>
+          <p class="profile_sentence">推しの好きなところは<span class="dflame profile_data"><%= @profile.favorite_point %></span>かな！</p>
+      </div>
+      <br>
+      <ul class="list">
+      <li>推しへの熱い想いをどうぞ！</li>
+      <p class="profile_data"><%= @profile.free %></p>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="text-right show-form">
+  <% if user_signed_in? %>
+    <% if @profile.user_id == current_user.id %>
+      <p class="m-1"><%= link_to '編集', [:edit, @profile], class: "white-btn btn " %></p>
+      <p class="m-1"><%= link_to "削除", @profile, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "red-btn btn" %></p>
+    <% end %>
+  <% end %>
+</div>
+<div class="text-center">     
+    <%= link_to 'プロフィール一覧へ戻る', :profiles, class: "white-btn btn rounded-pill w-50 m-auto mt-1" %>
+</div>
+</div>
+

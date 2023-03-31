@@ -1,0 +1,43 @@
+<div class="main_object">
+<h2>作成履歴</h2>
+<table class="profile-index">
+  <thead>
+    <tr>
+      <th>画像</th>
+      <th>名前</th>
+      <th>推し</th>
+      <th>更新日</th>
+      <th>公開設定</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @profiles.each do |profile| %>
+      <tr class="items">
+        <% if profile.image.attached? %>  
+          <td>
+            <%= link_to profile_path(profile) do %>
+            <%= image_tag profile.image.variant(resize_to_fill: [80, 80]) %>
+          </td>
+          <% end %>
+          <% else %>
+          <td>
+            <%= link_to profile_path(profile) do %>
+            <%= image_tag("default_image.png", :size => "80x80") %>
+          </td>
+          <% end %>
+        <% end %>
+        <td><%= profile.name %></td>
+        <td><%= profile.oshi_name %></td>
+        <td><%= profile.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <% if  profile.is_published_flag? %>
+          <td>公開中</td>
+        <% else %>
+          <td>非公開</td>
+        <% end %>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<p><%= link_to '一覧に戻る', :back %></p>
+</div>

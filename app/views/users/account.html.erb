@@ -1,0 +1,23 @@
+<div class="main_object">
+<h2>アカウント</h2>
+<div class=".col-lg-10">
+  <table>
+      <tr>
+        <th>メールアドレス</th>
+        <td><%= current_user.email %></td>
+      </tr>
+      <tr>
+        <th>パスワード</th>
+        <td>********</td>
+      </tr>
+ </table>
+</div>
+<% if current_user.email == 'guest@guest.com'%>
+  <p>ゲストユーザーはユーザー情報の編集ができません。</p>
+  <p><%= link_to '戻る', :back %></p>
+  <% else %>
+    <div>
+      <%= link_to '編集', '/users/edit/' %> 
+    </div>
+<% end %>
+</div>

@@ -1,0 +1,77 @@
+<div class="main_object">
+<br>
+  <p class="lead-form">新規作成</p>
+    <%= form_with(model: @profile,local: true) do |f| %>
+      <%= render 'devise/shared/error_messages', object: f.object, class:"caution" %>
+      <br>
+      <div class="item">
+        <label class="label"><%= f.label :name ,"自分の名前" %></label>
+        <%= f.text_field :name %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :sns ,"SNS" %></label>
+        <%= f.text_field :sns %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :image ,"写真" %></label>
+        <%= f.file_field :image %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :oshi_name ,"推しの名前" %></label>
+        <%= f.text_field :oshi_name %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :call ,"推しのことを何て呼んでる？" %></label>
+        <%= f.text_field :call %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :job ,"推しは何をしてる人？" %></label>
+        <%= f.text_field :job %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :favorite_point ,"推しの好きなところは？" %></label>
+        <%= f.text_field :favorite_point %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :reason ,"推しになったきっかけ・思い出" %></label>
+        <%= f.text_field :reason %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :every ,"推しとの日常" %></label>
+        <%= f.text_field :every %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :future ,"これからの推し活" %></label>
+        <%= f.text_field :future %>
+      </div>
+      <div class="item">
+        <label class="label"><%= f.label :free ,"推しへの熱い想いをどうぞ！" %></label>
+        <%= f.text_area :free, class: "inputs" %>
+      </div>
+      <%= f.hidden_field :id, value: @profile.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="item">
+        <p class="label">カラー選択</p>
+        <div class="inputs">
+          <%= f.color_field :color %>
+        </div>
+      </div>
+      <div class="item">
+        <p class="label">公開設定</p>
+        <div class="inputs">
+          <%= f.label :is_published_flag, "公開", value: true %>
+          <%= f.radio_button :is_published_flag, 'true' %>
+        </div>
+        <div class="inputs">
+          <%= f.label :is_published_flag, "非公開", value: false %>
+          <%= f.radio_button :is_published_flag,'false' %>
+        </div>
+      </div>
+      <div class="btn-area">
+        <%= f.submit "プロフィール作成する！", class: "red-btn" %>
+        <%= link_to '一覧に戻る', :profiles, class: "back" %>
+      </div>
+    
+  
+</div>
+<% end %>

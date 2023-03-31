@@ -8,9 +8,67 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      $(function(){
+        //hamburger menu click
+        $(document).on('click', '#nav_toggle', function(){
+          $("#top-head").toggleClass('open');
+          $("nav").slideToggle(500);
+        });
+         //menu link click
+        $(document).on('click', 'nav a', function(){
+          if(window.innerWidth <= 680){
+            $("#top-head").toggleClass('open');
+            $("nav").slideToggle(500);
+          }
+        });
+        window.matchMedia('(max-width: 680px)').addEventListener('change', e => {
+          if (!e.matches) $('nav').attr('style', null);
+        });
+      });
+    </script>
   </head>
 
   <body>
-    <%= yield %>
+    <header id="top-head">
+      <div class="inner">
+        <h1><%= link_to "OSHIBOOK", "/", class:"image-top" %></h1>
+        <div id="nav_toggle">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <% if user_signed_in? %>
+              <li><%= current_user.name %>ログイン中</li>
+              <li><%= link_to "設定", '/users/account', data: {"turbolinks" => false}  %></li>
+              <li><%= link_to "ログアウト", :destroy_user_session, data: {"turbolinks" => false}  %></li>
+            <% else %> 
+              <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, data: {"turbolinks" => false} , class: "login" %></li>
+              <li><%= link_to "新規登録", :new_user_registration, data: {"turbolinks" => false}  %></li>
+              <li><%= link_to "ログイン", :new_user_session, data: {"turbolinks" => false}  %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+      <main>
+        <p><%= notice %></p>
+        <p><%= alert %></p>
+        <%= yield %>
+      </main>
+      <footer>
+        <ul class="menu">
+        <li><%= link_to "利用規約", page_path('terms')%> </li>
+        <li><%= link_to "プライバシーポリシー", page_path('privacy_policy') %> </li>
+      </ul>
+      <p class="copyright">
+        ©︎OSHIBOOK
+      </p>
+      </footer>
+
   </body>
 </html>

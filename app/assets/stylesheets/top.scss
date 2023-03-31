@@ -1,0 +1,211 @@
+article {
+    display: block;
+    grid-area: top;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.article-card {
+    z-index: 1;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #fff;
+    opacity: .7;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+.top_object {
+    max-width: 900px;
+    margin:  0 auto;
+    margin-top: 15px;
+    padding-top: 10px;
+    min-height: calc(100vh - 423px);
+}
+.top_menu{
+    text-decoration: none;
+    color: #2c2c2f;
+}
+.top_menu:hover{
+    color: #20b2aa;
+}
+.m-2 {
+    margin: 0.5rem!important;
+}
+.pt-3 {
+    padding-top: 1rem!important;
+}
+.mb-0 {
+    margin-bottom: 0!important;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.h1, h1 {
+    font-size: calc(1.375rem + 1.5vw);
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h4{
+    margin-top: 20px;
+}
+.contents{
+    text-align: center;
+    margin: 0 0 3px;
+    padding-top: 10px;
+    font-family: 'Noto Sans Japanese';
+    font-size: 30px;
+    letter-spacing: 2.6px;
+    color: #323232;
+}
+nav {
+    grid-area: left;
+}
+nav {
+    display: block;
+}
+.background {
+    width: 100%;
+    height: 100vh;
+    // background-image: url(<%= asset_path('profile_image.jpg') %>);
+    background-image: url("/images/top_image.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.align-items-center{
+grid-area: center;
+}
+
+.page-title {
+    text-align: center;
+    color: #3e3e3e;
+    font-size: 17px;
+    padding: 3px;
+}
+.text-body-2 {
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.875;
+    letter-spacing: 0.05em;
+    text-align: justify;
+}
+.text-body-2 {
+    color: #383838;
+    font-weight: 400;
+    font-family: "Noto Sans JP",sans-serif!important;
+}
+.mt-5 {
+    margin-top: 3rem!important;
+}
+.mt-7 {
+    margin-top: 28px!important;
+}
+.about_title{
+    margin-bottom: 60px!important;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+// ol li, ul li {
+//     list-style: none;
+// }
+.l-section__blockDesc {
+    width: 44.4%;
+    margin: 0 14.2% 0 0;
+}
+.l-section__blockTitle {
+    margin: 0 0 2.4rem 0;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.3846;
+    letter-spacing: -0.025em;
+}
+.l-section__block .l-section__imgWrap.sp {
+    display: none;
+}
+.l-section__block .l-section__imgWrap {
+    position: relative;
+    width: 41.4%;
+}
+.l-section__blockDesc .l-section__text {
+    color: #383838;
+}
+.l-section__text {
+    color: #fff;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.875;
+    letter-spacing: 0.025em;
+    text-align: justify;
+}
+.l-section__block .l-section__imgWrap.pc {
+    display: block;
+}
+.l-section__block .l-section__imgWrap {
+    position: relative;
+    width: 41.4%;
+}
+
+
+.l-section__block .l-section__imgWrap .l-section__img {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.l-section__img.blockImgBar .simpleParallax {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.p-about-important__list .l-section__block .l-section__imgWrap .l-section__img img {
+    -o-object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin: 0 0 auto 0;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+}
+.nav-item{
+    font-size: 18px;
+    padding: 5px;
+}

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
-  def index
+  def account
+  end
+
+  def show
+    @user = current_user
   end
 end
