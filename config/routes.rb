@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   post 'profiles/show' 
   post 'profiles/:id/edit' => 'profiles#edit'
 
-  # post 'profiles/confirm' #確認画面
   get 'profiles/myprofile' => 'profiles#myprofile_index'
   post 'profiles/myprofile' #自身の投稿一覧
   post 'profiles/back' 

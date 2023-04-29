@@ -1,10 +1,13 @@
 <div class="main_object">
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
 <h2>みんなの推しプロフィール一覧</h2>
 <p class="index">※画像をクリックするとプロフィールが閲覧できます。</p>
   <div class="search-form">
     <h3 class="kensaku">検索</h3>
       <%= search_form_for @search, url: search_profiles_path do |f| %>
-        <%= f.text_field :name_or_oshi_name_cont, class: "search-form", placeholder: "作成者or推しの名前" %>
+        <%= f.text_field :user_name_or_oshi_name_cont, class: "search-form", placeholder: "作成者or推しの名前" %>
         <%= f.submit "検索", class: "red-btn" %>
       <% end %>
   </div>
@@ -13,7 +16,7 @@
   <thead>
     <tr>
       <th>画像</th>
-      <th><%= sort_link(@search, :name, "作成者") %></th>
+      <th><%= sort_link(@search, :user_name, "作成者") %></th>
       <th><%= sort_link(@search, :oshi_name, "推し") %></th>
       <th><%= sort_link(@search, :updated_at, "更新日") %></th>
     </tr>
@@ -24,15 +27,15 @@
         <% if profile.image.attached? %>  
           <td>
           <%= link_to profile_path(profile) do %>
-          <%= image_tag profile.image.variant(resize_to_fill: [80, 80]) %></td>
+          <%= image_tag profile.image.variant(resize_to_fill: [80, 80]) , :alt => "プロフィール画像" %></td>
           <% end %>
         <% else %>
           <td>
           <%= link_to profile_path(profile) do %>
-          <%= image_tag("default_image.png", :size => "80x80") %></td>
+          <%= image_tag("default_image.png", :size => "80x80", :alt => "プロフィール画像") %></td>
           <% end %>
         <% end %>
-        <td><%= profile.name %></td>
+        <td><%= profile.user_name %></td>
         <td><%= profile.oshi_name %></td>
         <td><%= profile.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
       </tr>

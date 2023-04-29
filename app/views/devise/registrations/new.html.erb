@@ -6,32 +6,31 @@
 
 
   <div class="field">
-    <%= f.label :"アカウント名" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "名前" %>
+    <%= f.label :アカウント名 %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "アカウント名" %>
   </div>
-
+  <br>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :メールアドレス%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %>文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.text_field :password, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.text_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= f.submit "アカウント作成" %>
+    <%= f.submit "アカウント作成", class:"index_menu" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+<%= link_to "戻る", :back %>
 </div>
